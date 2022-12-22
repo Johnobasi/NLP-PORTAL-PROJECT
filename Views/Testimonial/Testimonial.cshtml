@@ -1,0 +1,99 @@
+﻿@model FIVERR_PROJECT.Models.testimonial
+
+
+@{
+    ViewBag.Title = "Testimonial";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    List<SelectListItem> Testimonials = new List<SelectListItem>()
+    {
+        new SelectListItem{Text="Childbirth",Value="Childbirth"},
+        new SelectListItem{Text="Finance",Value="Finance"},
+        new SelectListItem{Text="Investment",Value="Investment"},
+        new SelectListItem{Text="Funding",Value="Funding"},
+        new SelectListItem{Text="Immigration",Value="Immigration"},
+        new SelectListItem{Text="Career",Value="Career"},
+        new SelectListItem{Text="Business",Value="Business"},
+        new SelectListItem{Text="School fees",Value="School fees"}
+    };
+}
+
+
+
+<section class="page-title bg-title overlay-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="title">
+                    <h3>Got Testimonies?</h3>
+                </div>
+                <ol class="breadcrumb justify-content-center p-0 m-0">
+                    <li class="breadcrumb-item">we just can't get enough of the love of jesus.</li>
+
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<br />
+<center>
+    <div style="background-color:aliceblue; font-family:Cambria;border:2px black outset;width:50%;height:50%">
+
+        @using (Html.BeginForm("Testimonial", "Testimonial", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h1>Tell us a bit more <br /> <span class="alternate">Please Share Your Testimony</span></h1>
+                <h4></h4>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Testimonial_Category, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.Testimonial_Category, Testimonials, "      --Select--      ")
+                        @Html.ValidationMessageFor(model => model.Testimonial_Category, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Testimony, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        <textarea name="testimony" id="testimony" class="form-control main" rows="10" placeholder="Write Testimony "></textarea>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    upload File
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(model => model.File, new { type = "file" })
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="SUBMIT" class="btn btn-default" style="background-color:chocolate; font-family:serif" />
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</center>
+
+
+<br />
+<br />
+<br />

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<FIVERR_PROJECT.Models.testimonial>
+
+@{
+    ViewBag.Title = "TestiDisplay";
+    Layout = "~/Views/Shared/_dashboad.cshtml";
+}
+
+<h1 style="text-align:center">Not APPROVED TESTIMONIAL</h1>
+<hr />
+<br />
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Testimonial_Category)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Testimonial_Category)
+            </td>
+
+            <td>
+                @Html.ActionLink("Approve", "approve", new { e = item.Testimony}) |
+
+                @Html.ActionLink("Details", "Detailstes", new { dt = item.Testimony }) |
+                @Html.ActionLink("Decline", "Deletetes", new { d = item.Testimony })
+
+
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FIVERR_PROJECT.Models.testimonial>
+
+@{
+    ViewBag.Title = "Childbirth";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1 style="text-align:center">Childbirth Category </h1>
+
+<hr />
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Testimony)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Testimony)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Details", "Dtesti", new { ne = item.Name })
+            </td>
+        </tr>
+    }
+
+</table>

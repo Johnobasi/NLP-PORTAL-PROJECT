@@ -1,0 +1,50 @@
+﻿@model FIVERR_PROJECT.Models.testimonial
+
+@{
+    ViewBag.Title = "Detailstes";
+    Layout = "~/Views/Shared/_dashboad.cshtml";
+}
+
+<h1 style="text-align:center">TESTIMONIAL Details</h1>
+<hr />
+<br />
+
+<center>
+    <div style="background-color:aliceblue; font-family:Cambria;border:2px black outset;width:50%;height:50%">
+        <div>
+
+            <dl class="dl-horizontal">
+                <dd>
+                    <img style="border:2px black outset;width:50%;height:50%" src="model.path" />
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+            
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Testimonial_Category)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Testimonial_Category)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Testimony)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Testimony)
+                </dd>
+              
+            </dl>
+        </div>
+
+    </div>
+</center>

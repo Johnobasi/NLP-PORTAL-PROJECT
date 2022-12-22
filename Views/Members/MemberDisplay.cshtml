@@ -1,0 +1,41 @@
+﻿@model IEnumerable<FIVERR_PROJECT.Models.Member>
+
+@{
+    Layout = "~/Views/Shared/_dashboad.cshtml";
+}
+
+
+    <br /><br /><br /><br />
+    <h1 style="text-align:center">All Members</h1>
+    
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit Details", "Editmem", new { ed=item.UserName }) |
+
+                    @Html.ActionLink("Delete", "Deletemem", new { d=item.UserName})
+                </td>
+            </tr>
+        }
+
+    </table>

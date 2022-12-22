@@ -1,0 +1,59 @@
+﻿@model FIVERR_PROJECT.Models.testimonial
+
+@{
+    ViewBag.Title = "Dtesti";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ 
+}
+
+<h1 style="text-align:center">TESTIMONIAL Details</h1>
+<hr />
+<br />
+
+<center>
+    <div style="background-color:aliceblue; font-family:Cambria;border:2px black outset;width:50%;height:50%">
+        <div>
+
+            <dl class="dl-horizontal">
+                <dd>
+                  
+                    <img src="/UserImages/USMAN.jpg" style="border:2px black outset;width:50%;height:50%" />
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Testimonial_Category)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Testimonial_Category)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Testimony)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Testimony)
+                </dd>
+
+
+                <dd>
+                    @Html.DisplayFor(model => model.likes) @Html.ActionLink("likes", "like", new { d = Model.Testimony }) ||
+                    @Html.DisplayFor(model => model.comm) @Html.ActionLink("Comments", "comme", new { e = Model.Testimony })
+                </dd>
+
+
+            </dl>
+        </div>
+
+    </div>
+</center>
